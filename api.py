@@ -25,7 +25,7 @@ def tabela():
 tabela()
 
 @app.route('/post', methods=['POST'])
-def pegar_temp():
+def postar_temp():
     macadd: str = request.json.get('macaddress')
     temperatura: float = request.json.get('temperatura')
     data: datetime = datetime.today().strftime('%d/%m %H:%M:%S')
@@ -40,7 +40,7 @@ def pegar_temp():
     
 
 @app.route('/', methods=['GET'])
-def postar_temp():
+def pegar_temp():
     conn, cursor = conexao()
     
     cursor.execute('SELECT * FROM termometros ORDER BY rowid DESC LIMIT 1')
